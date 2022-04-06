@@ -2,8 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-app.use(express.json())
 const PORT = 5000
+const cors = require('cors')
 
 //required routes
 const categoryRoute = require('./routes/category')
@@ -22,7 +22,8 @@ const connectDB = async () => {
 }
 connectDB()
 app.listen(PORT, () => console.log(`Server started on PORT: ${PORT}`))
-
+app.use(express.json())
+app.use(cors())
 //use API
 app.use('/api/account', accountRoute)
 app.use('/api/categories', categoryRoute)

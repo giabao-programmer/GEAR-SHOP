@@ -5,6 +5,28 @@ const argon2 = require('argon2');
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 
+
+const checkLoggedin = async (req, res) => {
+    try {
+        const account = await Account.findById(req.accountId).select('-password')
+        if (!account) {
+            return res.status.json({
+                success: false,
+                message: 'User not found'
+            })
+        }
+        res.json({
+            success: true,
+            account
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: 'Internal Server Error'
+        })
+    }
+}
+
 const register = async (req, res) => {
     const { username, password, role } = req.body
     if (!username || !password) {
@@ -81,4 +103,4 @@ const login = async (req, res) => {
         })
     }
 }
-module.exports = { register, login }
+module.exports = { register, login, checkLoggedin }

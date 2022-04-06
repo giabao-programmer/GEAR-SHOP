@@ -1,7 +1,9 @@
 const express = require("express")
-const { register, login } = require("../controllers/accountController")
-
+const { register, login, checkLoggedin } = require("../controllers/accountController")
+const verifyToken = require('../middleware/auth')
 const router = express.Router()
+
+router.get("/", verifyToken ,checkLoggedin)
 
 router.post("/register", register)
 
