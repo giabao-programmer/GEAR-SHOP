@@ -1,4 +1,3 @@
-const accountModel = require("../models/Account")
 const express = require("express")
 const Account = require("../models/Account")
 const argon2 = require('argon2');
@@ -8,23 +7,14 @@ const jwt = require('jsonwebtoken')
 
 const checkLoggedin = async (req, res) => {
     try {
-        const account = await Account.findById(req.accountId).select('-password')
-        if (!account) {
-            return res.status.json({
-                success: false,
-                message: 'User not found'
-            })
-        }
-        res.json({
-            success: true,
-            account
-        })
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: 'Internal Server Error'
-        })
-    }
+		const account = await Account.findById(req.accountId).select('-password')
+		if (!account)
+			return res.status(400).json({ success: false, message: 'User not found' })
+		res.json({ success: true, account })
+	} catch (error) {
+		console.log(error)
+		res.status(500).json({ success: false, message: 'Internal server error' })
+	}
 }
 
 const register = async (req, res) => {

@@ -1,0 +1,8 @@
+.gearshop-top-banner {
+    display: block !important;
+    height: 50px;
+    background-repeat: no-repeat !important;
+    background-position: center 100% !important;
+    text-align: center;
+    background-image: url(../../assets/banner.png);
+}

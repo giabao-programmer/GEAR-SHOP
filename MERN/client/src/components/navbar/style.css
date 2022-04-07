@@ -1,0 +1,10 @@
+.logo {
+    width: 30px;
+    src: url(../../assets/logo.png);
+}
+.search {
+    border-radius: 15px;
+}
+.dropdowncolor {
+    color: black;
+}
