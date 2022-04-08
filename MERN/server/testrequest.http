@@ -1,17 +1,23 @@
-PUT http://localhost:5000/api/products/update/624c739a6696a6559716dba9
+POST http://localhost:5000/api/products/new
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2MjRkNTM1MThkOGZjODc0NTMwNDJiYmMiLCJpYXQiOjE2NDkyMzY0MzR9.ZRItQHSP_w4njbl9eimW3mHVbt6wFFtR4SejEQNY-50
 
 {
-    "productName": "Intel Core I9 10900K / 20MB / 5.3GHz / 10 Core 20 Thread / LGA 2066",
-    "category": "6247aed591d48571f2f1dfe9",
-    "quantity": 36,
-    "price": 13490000,
-    "properties": "Socket: FCLGA1200, Core: 10, Thread: 20, Power: 125W, Memory: 128Gb, Type: DDR4-2933",
-    "image": "/images/upload"
+    "productName": "Kingston Fury RGB 2x16GB 3600",
+    "category": "6247aee491d48571f2f1dfec",
+    "quantity": 10,
+    "price": 5390000,
+    "properties": "32GB (16GB x 2) / DDR4 / 3600MHz",
+    "image": "/uploads/RAM/kingston3600.webp",
+    "hot": false
 }
 ###
-GET http://localhost:5000/api/products/624c739a6696a6559716dba9
+GET http://localhost:5000/api/products/cate/
+Content-Type: application/json
+
+{
+    "category" : "6247aed591d48571f2f1dfe9"
+}
 
 ###
 DELETE http://localhost:5000/api/products/624c739a6696a6559716dba9

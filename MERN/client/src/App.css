@@ -25,12 +25,13 @@
 }
 .menu-nav {
   position: relative;
-  background: #ffffff;
+  background: #f1f0f1;
   border-radius: 7px 7px 7px 7px !important;
 }
 .menu-nav ul {
+  border-radius: 10px;
   list-style-type: none;
-  padding-left: 10px;
+  padding: 0;
 }
 .menu-nav span {
   width: 30px;

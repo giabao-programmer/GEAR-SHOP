@@ -11,9 +11,52 @@ const getProducts = async (req, res) => {
         res.status(500).json({ error: error })
     }
 }
+const getHotProducts = async (req, res) => {
+    const hot = true
+    try {
+        const getHotProducts = await productModel.find({ hot })
+        if (!getHotProducts) {
+            return res.status(401).json({
+                success: false,
+                message: "Product not found",
+            })
+        }
+        res.status(200).json({
+            success: true,
+            getHotProducts,
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+        })
+    }
+}
+
+const getProductsByCate = async (req, res) => {    
+    const {category} = req.params
+    try {
+        const getProductsByCate = await productModel.find({ category })
+        if (!getProductsByCate) {
+            return res.status(401).json({
+                success: false,
+                message: "Product not found",
+            })
+        }
+        res.status(200).json({
+            success: true,
+            getProductsByCate,
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+        })
+    }
+}
 
 const newProduct = async (req, res) => {
-    const { productName, category, quantity, price, properties, image } = req.body
+    const { productName, category, quantity, price, properties, image, hot } = req.body
     if (!productName || !category || !quantity || !price) {
         return res.status(400).json({
             success: false,
@@ -29,6 +72,7 @@ const newProduct = async (req, res) => {
             price,
             properties,
             image,
+            hot
         })
         await newProduct.save()
         res.status(200).json({
@@ -125,4 +169,4 @@ const deleteProduct = async (req, res) => {
     }
 }
 
-module.exports = { getProducts, newProduct, updateProduct, findProduct, deleteProduct }
+module.exports = { getProducts, getHotProducts, getProductsByCate, newProduct, updateProduct, findProduct, deleteProduct }

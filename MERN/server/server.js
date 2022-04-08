@@ -25,6 +25,7 @@ app.listen(PORT, () => console.log(`Server started on PORT: ${PORT}`))
 app.use(express.json())
 app.use(cors())
 //use API
+app.use('/uploads', express.static('uploads'));
 app.use('/api/account', accountRoute)
 app.use('/api/categories', categoryRoute)
 app.use('/api/products', productRoute)

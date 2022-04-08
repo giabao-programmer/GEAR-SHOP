@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button"
 import { useContext, useState } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
+import AlertMessage from '../../components/navigate/AlertMessage'
 
 const LoginForm = () => {
     const { loginManager } = useContext(AuthContext)
@@ -12,7 +13,7 @@ const LoginForm = () => {
         username: "",
         password: "",
     })
-
+    const [alert, setAlert] = useState(null)
     const { username, password } = loginForm
     const onChangeLoginForm = (event) => {
         setLoginForm({
@@ -29,6 +30,13 @@ const LoginForm = () => {
             if (loginData.success) {
                 navigate('/management')
             }
+            else {
+                setAlert({
+                    type: 'danger',
+                    message: loginData.message
+                })
+                setTimeout(() => setAlert(null), 1500)
+            }
         } catch (error) {
             console.log(error)
         }
@@ -36,6 +44,7 @@ const LoginForm = () => {
 
     return (
         <Form onSubmit={login}>
+            <AlertMessage info={alert}/>
             <Form.Group className="mb-3">
                 <Form.Control type="text" placeholder="Accountname" name="username" required value={username} onChange={onChangeLoginForm} />
             </Form.Group>

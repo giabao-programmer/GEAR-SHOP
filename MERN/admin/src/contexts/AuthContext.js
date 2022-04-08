@@ -36,7 +36,9 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => async () => loadManager(), [])
+    useEffect(() => {
+        loadManager()
+    }, [])
 
     // Login
     const loginManager = async (userForm) => {

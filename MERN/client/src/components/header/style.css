@@ -5,4 +5,5 @@
     background-position: center 100% !important;
     text-align: center;
     background-image: url(../../assets/banner.png);
+    position: relative;
 }
