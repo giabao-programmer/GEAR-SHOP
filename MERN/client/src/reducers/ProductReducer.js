@@ -1,4 +1,4 @@
-import { PRODUCTS_HOT_LOADED_FAILED, PRODUCTS_HOT_LOADED_SUCCESS, PRODUCTS_BY_CATEGORY_SUCCESS, PRODUCTS_BY_CATEGORY_FAILED, PRODUCTS_DETAIL_SUCCESS, PRODUCTS_DETAIL_FAILED } from "./contants"
+import { PRODUCTS_HOT_LOADED_FAILED, PRODUCTS_HOT_LOADED_SUCCESS, PRODUCTS_BY_CATEGORY_SUCCESS, PRODUCTS_BY_CATEGORY_FAILED, PRODUCTS_DETAIL_SUCCESS, PRODUCTS_DETAIL_FAILED, PRODUCTS_FIND_BY_NAME_SUCCESS, PRODUCTS_FIND_BY_NAME_FAILED } from "./contants"
 
 export const productReducer = (state, action) => {
     const { type, payload } = action
@@ -38,6 +38,18 @@ export const productReducer = (state, action) => {
                 ...state,
                 productDetail: {},
                 productDetailLoading: false,
+            }
+        case PRODUCTS_FIND_BY_NAME_SUCCESS:
+            return {
+                ...state,
+                products: payload,
+                productsLoading: false,
+            }
+        case PRODUCTS_FIND_BY_NAME_FAILED:
+            return {
+                ...state,
+                products: [],
+                productsLoading: false,
             }
         default:
             return state

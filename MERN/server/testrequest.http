@@ -12,11 +12,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2M
     "hot": false
 }
 ###
-GET http://localhost:5000/api/products/cate/
+POST http://localhost:5000/api/orders/new
 Content-Type: application/json
 
 {
-    "category" : "6247aed591d48571f2f1dfe9"
+    "customerName": "Kingston Fury RGB 2x16GB 3600",
+    "customerPhone": "6247aee491d48571f2f1dfec",
+    "products": [{}],
+    "totalPrice": 5390000,
+    "customerAddress": "32GB (16GB x 2) / DDR4 / 3600MHz"
+}
+###
+GET http://localhost:5000/api/products/search
+Content-Type: application/json
+
+{
+    "productName" : "Intel"
 }
 
 ###
@@ -41,4 +52,5 @@ Content-Type: application/json
     "password": "seller"
 }
 ###
-GET http://localhost:5000/api/products
+GET http://localhost:5000/api/products/search/Intel
+Content-Type: application/json

@@ -9,6 +9,7 @@ const cors = require('cors')
 const categoryRoute = require('./routes/category')
 const accountRoute = require('./routes/account')
 const productRoute = require('./routes/product')
+const orderRoute = require('./routes/order')
 
 //Mongodb Connection
 const connectDB = async () => {
@@ -29,3 +30,4 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/account', accountRoute)
 app.use('/api/categories', categoryRoute)
 app.use('/api/products', productRoute)
+app.use('/api/orders', orderRoute)

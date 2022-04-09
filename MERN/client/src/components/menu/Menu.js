@@ -36,7 +36,7 @@ const Menu = () => {
                     <ul className="nav-menulist" >
                         {categories.map((category) => (
                             <div key={category._id} onClick={()=> handleSelectedCate(category._id)}>
-                                <SingleCategory onClick category={category} />
+                                <SingleCategory category={category} />
                             </div>
                         ))}
                     </ul>

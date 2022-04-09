@@ -1,6 +1,6 @@
 import React from "react"
 import { ListGroup } from "react-bootstrap"
-const SingleCategory = ({ category: { _id, categoryName } }) => {
+const SingleCategory = ({ category: { categoryName } }) => {
   const style = {
     border: 'none',
     marginBottom: '3px'

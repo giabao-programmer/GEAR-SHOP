@@ -14,7 +14,7 @@ const getProducts = async (req, res) => {
 const getHotProducts = async (req, res) => {
     const hot = true
     try {
-        const getHotProducts = await productModel.find({ hot })
+        const getHotProducts = await productModel.find({ hot }).sort({price: 'ascending'})
         if (!getHotProducts) {
             return res.status(401).json({
                 success: false,
@@ -36,7 +36,7 @@ const getHotProducts = async (req, res) => {
 const getProductsByCate = async (req, res) => {    
     const {category} = req.params
     try {
-        const getProductsByCate = await productModel.find({ category })
+        const getProductsByCate = await productModel.find({ category }).sort({price: 'ascending'})
         if (!getProductsByCate) {
             return res.status(401).json({
                 success: false,
@@ -148,6 +148,29 @@ const findProduct = async (req, res) => {
     }
 }
 
+const findProductByName = async (req, res) => {
+    const {name} = req.params
+    console.log(name)
+    try {
+        const findProduct = await productModel.find({ productName: { $regex: '.*' + name + '.*' } })
+        if (!findProduct) {
+            return res.status(401).json({
+                success: false,
+                message: "Product not found",
+            })
+        }
+        res.status(200).json({
+            success: true,
+            findProduct,
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+        })
+    }
+}
+
 const deleteProduct = async (req, res) => {
     try {
         const findProduct = await productModel.findOneAndDelete({ _id: req.params.id })
@@ -169,4 +192,4 @@ const deleteProduct = async (req, res) => {
     }
 }
 
-module.exports = { getProducts, getHotProducts, getProductsByCate, newProduct, updateProduct, findProduct, deleteProduct }
+module.exports = { getProducts, getHotProducts, getProductsByCate, newProduct, updateProduct, findProduct, findProductByName, deleteProduct }

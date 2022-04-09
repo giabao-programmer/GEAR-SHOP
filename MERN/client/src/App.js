@@ -8,6 +8,9 @@ import ProductContextProvider from "./contexts/ProductContext"
 import CategoryContextProvider from "./contexts/CategoryContext"
 import Nav from "./components/navbar/Nav"
 import CartContextProvider from "./contexts/CartContext"
+import CartView from "./views/CartView"
+import CheckoutForm from "./components/checkout/CheckoutForm"
+
 function App() {
     return (
         <>
@@ -21,6 +24,8 @@ function App() {
                                 <Route exact path="/" element={<Landing />} />
                                 <Route exact path="/home" element={<HomeView />} />
                                 <Route exact path="/detail/:id" element={<DetailView />} />
+                                <Route exact path="/cart" element={<CartView />} />
+                                <Route exact path='/checkout' element={<CheckoutForm/>} />
                             </Routes>
                         </Router>
                     </ProductContextProvider>
