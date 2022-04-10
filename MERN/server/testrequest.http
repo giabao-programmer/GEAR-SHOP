@@ -52,5 +52,10 @@ Content-Type: application/json
     "password": "seller"
 }
 ###
-GET http://localhost:5000/api/products/search/Intel
+GET http://localhost:5000/api/products
 Content-Type: application/json
+
+###
+GET http://localhost:5000/api/account
+Content-Type: application/json
+

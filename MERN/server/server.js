@@ -23,8 +23,11 @@ const connectDB = async () => {
 }
 connectDB()
 app.listen(PORT, () => console.log(`Server started on PORT: ${PORT}`))
+
 app.use(express.json())
 app.use(cors())
+app.use(express.urlencoded({ extended: true}));
+
 //use API
 app.use('/uploads', express.static('uploads'));
 app.use('/api/account', accountRoute)

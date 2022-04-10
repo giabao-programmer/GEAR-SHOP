@@ -1,8 +1,8 @@
 const productModel = require("../models/Product")
-
+const categoryModel = require("../models/Category")
 const getProducts = async (req, res) => {
     try {
-        const products = await productModel.find().populate("category")
+        const products = await productModel.find().populate("category").sort({ price: "ascending" })
         res.status(200).json({
             success: true,
             products,
@@ -14,7 +14,7 @@ const getProducts = async (req, res) => {
 const getHotProducts = async (req, res) => {
     const hot = true
     try {
-        const getHotProducts = await productModel.find({ hot }).sort({price: 'ascending'})
+        const getHotProducts = await productModel.find({ hot }).sort({ price: "ascending" })
         if (!getHotProducts) {
             return res.status(401).json({
                 success: false,
@@ -33,10 +33,10 @@ const getHotProducts = async (req, res) => {
     }
 }
 
-const getProductsByCate = async (req, res) => {    
-    const {category} = req.params
+const getProductsByCate = async (req, res) => {
+    const { category } = req.params
     try {
-        const getProductsByCate = await productModel.find({ category }).sort({price: 'ascending'})
+        const getProductsByCate = await productModel.find({ category }).sort({ price: "ascending" })
         if (!getProductsByCate) {
             return res.status(401).json({
                 success: false,
@@ -57,6 +57,7 @@ const getProductsByCate = async (req, res) => {
 
 const newProduct = async (req, res) => {
     const { productName, category, quantity, price, properties, image, hot } = req.body
+    console.log(image)
     if (!productName || !category || !quantity || !price) {
         return res.status(400).json({
             success: false,
@@ -71,9 +72,14 @@ const newProduct = async (req, res) => {
             instock: quantity > 0 ? true : false,
             price,
             properties,
-            image,
-            hot
+            image: 'null',
+            hot,
         })
+        const findcate = await categoryModel.findOne({ _id: category })
+        if (req.files) {  
+            newProduct.image = `/uploads/${findcate.categoryName}/${image}`
+        }
+
         await newProduct.save()
         res.status(200).json({
             success: true,
@@ -149,10 +155,10 @@ const findProduct = async (req, res) => {
 }
 
 const findProductByName = async (req, res) => {
-    const {name} = req.params
+    const { name } = req.params
     console.log(name)
     try {
-        const findProduct = await productModel.find({ productName: { $regex: '.*' + name + '.*' } })
+        const findProduct = await productModel.find({ productName: { $regex: ".*" + name + ".*" } })
         if (!findProduct) {
             return res.status(401).json({
                 success: false,
@@ -182,7 +188,7 @@ const deleteProduct = async (req, res) => {
         }
         res.status(200).json({
             success: true,
-            message: 'Delete product successful',
+            message: "Delete product successful",
         })
     } catch (error) {
         res.status(500).json({

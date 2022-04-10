@@ -1,16 +1,16 @@
-const orderModel = require('../models/Order')
+const orderModel = require("../models/Order")
 
 const getOrders = async (req, res) => {
     try {
-        const orders = await orderModel.find()
+        const orders = await orderModel.find().sort({ createAt: "descending" })
         res.status(200).json({
             success: true,
             orders,
         })
     } catch (error) {
-        res.status(500).json({ 
-            success: false, 
-            message: 'Internal Server Error'
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
         })
     }
 }

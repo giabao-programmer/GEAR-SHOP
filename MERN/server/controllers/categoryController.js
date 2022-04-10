@@ -11,7 +11,4 @@ const getCategories = async (req, res) => {
         res.status(500).json({ error: error })
     }
 }
-const newCategory = async (req, res) => {
-    
-}
 module.exports = { getCategories }

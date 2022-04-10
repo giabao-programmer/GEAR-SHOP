@@ -20,7 +20,7 @@ const LoginView = () => {
                 <Spinner animation="border" variant="info" />
             </div>
         )
-    } else if (isAuthenticated) navigate(`/management`)
+    } else if (isAuthenticated) navigate(`/management/product`)
     else
         body = (
             <>
