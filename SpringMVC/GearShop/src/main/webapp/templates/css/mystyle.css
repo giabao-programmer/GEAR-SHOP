@@ -1,0 +1,115 @@
+.gearshop-top-banner {
+  display: block !important;
+  height: 50px;
+  background-repeat: no-repeat !important;
+  background-position: center 100% !important;
+  text-align: center;
+}
+.bg-milk {
+  background-color: #f1f0f1 !important;
+}
+.body1680px {
+  max-width: 1680px !important;
+  min-height: 720px;
+}
+.nav-border {
+  border-bottom: 1px solid #d4d4d4;
+}
+.nav-icon{
+  width: 18px;
+  height: 14px;
+}
+.body1680px > .left {
+  display: inline-block;
+  position: relative;
+  margin-right: auto;
+}
+.img-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+.menu-nav {
+  position: relative;
+  background: #ffffff;
+  border-radius: 7px 7px 7px 7px !important;
+}
+.menu-nav ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.menu-nav span {
+  width: 30px;
+  padding-left: 10px;
+}
+.menu-nav a {
+  text-decoration: none;
+  color: black;
+}
+.menu-nav span img {
+  width: 25px;
+  height: 25px;
+}
+.nav-menulist {
+  padding-top: 5px;
+}
+.nav-menulist li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.nav-menulist li:hover {
+  background-color: #ea1c04;
+  border-radius: 7px 7px 7px 7px;
+  margin-right: 10px;
+}
+.form-input{
+  padding: 0.5rem 0.5rem;
+  background-color: white;
+  border-radius: 20px;
+}
+.form-input input{
+  background-color: white;
+  width: 500px;
+  border: none;
+}
+.form-input button{
+  background: none;
+  border: none;
+}
+.form-input input:focus{
+  outline: none;
+}
+.bottomhome {
+  display: inline-block;
+}
+.bottomhome img {
+  width: 345.2px;
+}
+.rightmenubanner img{
+  width: 242px;
+  height: 153px;
+}
+.homeproduct-title{
+  background: red;
+  border-radius: 7px 7px 0 0;
+  font-size: 22px;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-align: center;
+}
+.productprice{
+  font-style: italic;
+  color: #ea1c04;
+}
+.fontbold{
+  font-weight: bold;
+}
+.btn-outline-red {
+  color: #e63810;
+  border-color: #212529;
+}
+.btn-outline-red:hover {
+  color: #fff;
+  background-color: #e63810;
+  border-color: #e63810;
+}

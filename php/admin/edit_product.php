@@ -274,14 +274,14 @@ $brand_name
 
                 <div class="col-md-6">
                   <?php
-                    if ($p_hot == 1) {
-                      echo '<input type="checkbox" name="hot" class="form-control" value="1" checked>';
-                    }else{
-                      echo '<input type="checkbox" name="hot" class="form-control" value="1">';
-                    }
+                  if ($p_hot == 1) {
+                    echo '<input type="checkbox" name="hot" class="form-control" value="1" checked>';
+                  } else {
+                    echo '<input type="checkbox" name="hot" class="form-control" value="0">';
+                  }
                   ?>
-                  <input type="hidden" name="hot" class="form-control" value="0" >
-                  
+                  <input type="hidden" name="hot" class="form-control" value="0">
+
                 </div>
 
               </div>
@@ -396,7 +396,13 @@ $brand_name
     } else {
       $product_instock = 0;
     }
-    $hot = $_POST['hot'];
+   
+    if(isset($_POST['hot'])){
+      $hot = 1;
+    }  else {
+      $hot = 0;
+    }
+    $hotp =  $hot;
     $product_properties = $_POST['properties'];
 
     $product_img1 = $_FILES['image']['name'];
@@ -413,7 +419,7 @@ $brand_name
 
     move_uploaded_file($temp_name1, "../uploads/$product_img1");
 
-    $update_product = "update product set categoryId='$cat',brandId='$brand_id',productName='$product_name',image='$product_img1',price='$product_price',description='$product_desc',quantity='$qty',instock='$product_instock',properties='$product_properties', hot = '$hot' where productId='$p_id'";
+    $update_product = "update product set categoryId='$cat',brandId='$brand_id',productName='$product_name',image='$product_img1',price='$product_price',description='$product_desc',quantity='$qty',instock='$product_instock',properties='$product_properties', hot = '$hotp' where productId='$p_id'";
 
     $run_product = mysqli_query($con, $update_product);
 
