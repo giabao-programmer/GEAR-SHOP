@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,174 +88,31 @@
 		<div class="container px-4 ps-lg-5 mt-3">
 			<h2 class="homeproduct-title">Best Sale Products</h2>
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
+			
+				<c:forEach items="${products}" var="prod">
+					<div class="col mb-5">
+						<div class="card h-100">
+							<!-- Product image-->
+							<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+							<!-- Product details-->
+							<div class="card-body p-4 pb-2">
+								<div class="text-center pt-3">
+									<!-- Product name-->
+									<h6 class="fw-bolder">${prod.productName}</h6>
+									<!-- Product price-->
+									<h5 class="productprice">${prod.productPrice}</h5>
+								</div>
 							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
+							<!-- Product actions-->
+							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+								<div class="text-center">
+									<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4 pb-2">
-							<div class="text-center pt-3">
-								<!-- Product name-->
-								<h6 class="fw-bolder">Fancy Product</h6>
-								<!-- Product price-->
-								<h5 class="productprice">27.990.000đ</h5>
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View product</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
+				
 			</div>
 		</div>
 	</section>

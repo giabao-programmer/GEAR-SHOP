@@ -72,7 +72,7 @@ const newProduct = async (req, res) => {
             instock: quantity > 0 ? true : false,
             price,
             properties,
-            image: 'null',
+            image,
             hot,
         })
         const findcate = await categoryModel.findOne({ _id: category })

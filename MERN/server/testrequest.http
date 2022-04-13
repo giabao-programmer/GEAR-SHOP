@@ -3,13 +3,13 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI2MjRkNTM1MThkOGZjODc0NTMwNDJiYmMiLCJpYXQiOjE2NDkyMzY0MzR9.ZRItQHSP_w4njbl9eimW3mHVbt6wFFtR4SejEQNY-50
 
 {
-    "productName": "Kingston Fury RGB 2x16GB 3600",
-    "category": "6247aee491d48571f2f1dfec",
-    "quantity": 10,
-    "price": 5390000,
-    "properties": "32GB (16GB x 2) / DDR4 / 3600MHz",
-    "image": "/uploads/RAM/kingston3600.webp",
-    "hot": false
+    "productName": "AORUS 850W",
+    "category": "6247b06c91d48571f2f1dff9",
+    "quantity": 5,
+    "price": 4990000,
+    "properties": "AORUS 850W",
+    "image": "/uploads/PSU/psu_aorus_850w_gearvn_large.webp",
+    "hot": true
 }
 ###
 POST http://localhost:5000/api/orders/new
