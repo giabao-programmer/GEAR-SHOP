@@ -1,4 +1,4 @@
-package com.gearshop.controller.customer;
+package com.gearshop.controller.admin;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gearshop.model.Product;
 import com.gearshop.service.ProductService;
 
-@Controller(value = "homeControllerofCustomer")
-public class HomeController {
-
+@Controller(value = "productControllerofAdmin")
+public class ProductController {
+	
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	public ModelAndView getHotProducts() {
-		List<Product> products = productService.getHotProducts();
-		return new ModelAndView("customer/index", "products", products);
+	@RequestMapping(value = "/admin/allproduct", method = RequestMethod.GET)
+	public ModelAndView getAllProducts() {
+		List<Product> products = productService.getAllProducts();
+		return new ModelAndView("admin/list", "products", products);
 	}
 }

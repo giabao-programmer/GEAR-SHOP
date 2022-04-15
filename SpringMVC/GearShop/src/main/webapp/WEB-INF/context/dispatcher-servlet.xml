@@ -21,6 +21,8 @@
 	<context:component-scan base-package="com.gearshop.controller" />
 
 	<mvc:annotation-driven />
+	
+  	<mvc:default-servlet-handler/>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 

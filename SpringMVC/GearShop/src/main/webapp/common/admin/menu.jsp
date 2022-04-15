@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div id="layoutSidenav_nav">
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 		<div class="sb-sidenav-menu">
@@ -20,7 +22,9 @@
 				</a>
 				<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="list.html">Product</a> <a class="nav-link" href="list.html">Order</a> <a class="nav-link" href="layout-static.html">Customer</a>
+						<a class="nav-link" href="<c:url value='/admin/allproduct'/>">Product</a> 
+						<a class="nav-link" href="list.html">Order</a> 
+						<a class="nav-link" href="layout-static.html">Customer</a>
 					</nav>
 				</div>
 			</div>

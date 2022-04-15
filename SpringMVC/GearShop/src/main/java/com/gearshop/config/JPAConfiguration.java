@@ -35,7 +35,7 @@ public class JPAConfiguration {
     
     public Properties hibernateProperties(){
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "none");
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		return hibernateProperties;
     }
