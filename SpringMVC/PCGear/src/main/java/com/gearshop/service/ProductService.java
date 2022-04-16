@@ -29,4 +29,12 @@ public class ProductService {
 		ProductEntity product = productRepository.findOne(id);
 		return product;
 	}
+	
+	public List<ProductEntity> findByProductCategory(String cateId) {
+		return (List<ProductEntity>) productRepository.findByProductCategoryOrderByProductPriceAsc(cateId);
+	}
+	
+	public List<ProductEntity> findByProductName(String name) {
+		return (List<ProductEntity>) productRepository.findByProductNameOrderByProductPriceAsc(name);
+	}
 }

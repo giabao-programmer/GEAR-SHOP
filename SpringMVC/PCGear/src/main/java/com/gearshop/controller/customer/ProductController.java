@@ -1,5 +1,7 @@
 package com.gearshop.controller.customer;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +24,15 @@ public class ProductController {
 		return new ModelAndView("customer/detail", "product", product);
 	}
 	
-//	@RequestMapping(value = "/cate", method = RequestMethod.GET)
-//	public ModelAndView getProductByCate(@RequestParam(value = "id") String cate) {
-//		List<Product> products = productService.getProductByCate(cate);		
-//		return new ModelAndView("customer/productlist", "products", products);
-//	}
-//	
-//	@RequestMapping(value = "/search", method = RequestMethod.GET)
-//	public ModelAndView getProductByName(@RequestParam(value = "name") String name) {
-//		List<Product> products = productService.getProductByName(name);
-//		System.out.print(products);
-//		return new ModelAndView("customer/productlist", "products", products);
-//	}
+	@RequestMapping(value = "/cate", method = RequestMethod.GET)
+	public ModelAndView getProductByCate(@RequestParam(value = "id") String cate) {
+		List<ProductEntity> products = productService.findByProductCategory(cate);		
+		return new ModelAndView("customer/productlist", "products", products);
+	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ModelAndView getProductByName(@RequestParam(value = "name") String name) {
+		List<ProductEntity> products = productService.findByProductName(name);
+		return new ModelAndView("customer/productlist", "products", products);
+	}
 }
