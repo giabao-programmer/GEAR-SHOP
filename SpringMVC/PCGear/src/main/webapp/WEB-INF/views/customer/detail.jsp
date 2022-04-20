@@ -12,21 +12,22 @@
 			<div class="col-md-6">
 				<h1 class="display-5 fw-bolder">${product.productName}</h1>
 				<div class="fs-5 mb-5">
-					<span> <fmt:setLocale value="vi_VN" /> <fmt:formatNumber currencySymbol="" minFractionDigits="0" value="${product.productPrice}"
-							type="currency" /> vnđ
+					<span> 
+						<fmt:setLocale value="vi_VN" /> 
+						<fmt:formatNumber currencySymbol="" minFractionDigits="0" value="${product.productPrice}" type="currency" /> vnđ
 					</span>
 				</div>
 
 				<c:set var="productProperties" value="${fn:split(product.productProperties, '/')}" />
 				<c:forEach items="${productProperties}" var="props">
-					<p style="font-weight: bold;" class="lead">${props}</p>
+					<p style="font-weight: 300;" class="lead">${props}</p>
 					<br>
 				</c:forEach>
 
 				<div class="d-flex">
-					<button class="btn btn-outline-dark flex-shrink-0" type="button">
-						<i class="bi-cart-fill me-1"></i> Add to cart
-					</button>
+					<a href="<c:url value='/addToCart?productId=${product.id }'/>" class="btn btn-outline-red flex-shrink-0" type="button" style="font-weight: 500;">
+						Add to cart
+					</a>
 				</div>
 			</div>
 		</div>

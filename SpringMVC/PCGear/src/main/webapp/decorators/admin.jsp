@@ -29,5 +29,7 @@
 	<script src="<c:url value='templates/admin/assets/demo/chart-bar-demo.js'/>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 	<script src="<c:url value='templates/admin/js/datatables-simple-demo.js'/>"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <div id="layoutSidenav_content">
 	<main>
@@ -8,7 +9,8 @@
 			<h1 class="mt-4" style="margin-left: 45%;">Product</h1>
 			<div class="" style="justify-content: space-between; display: flex;">
 				<h4>List Product</h4>
-				<a class="mb-4 btn btn-success" href="create.html" type="button">New product</a>
+				<button type="button" class="mb-4 btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+					data-bs-whatever="@getbootstrap">New Product</button>
 			</div>
 			<div class="card mb-4">
 
@@ -26,25 +28,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${products}" var="prod">
+							<c:forEach items="${list}" var="item">
 								<tr>
-									<td>${prod.id}</td>
-									<td><img alt="${prod.productImage }" src="templates/images/uploads/${prod.productImage }" style="width: 30px; height: 30px"></td>
-									<td>${prod.productName}</td>
-									<td>${prod.productCategory}</td>
-									<td><fmt:setLocale value="vi_VN" /> <fmt:formatNumber currencySymbol="" minFractionDigits="0" value="${prod.productPrice}"
-											type="currency" /></td>
+									<td>${item.id}</td>
+									<td><img alt="${item.productImage }" src="templates/images/uploads/${item.productImage }"
+										style="width: 30px; height: 30px"></td>
+									<td>${item.productName}</td>
+									<td>${item.productCategory}</td>
+									<td><fmt:setLocale value="vi_VN" /> <fmt:formatNumber currencySymbol="" minFractionDigits="0"
+											value="${item.productPrice}" type="currency" /></td>
 									<td><c:choose>
-											<c:when test="${prod.productInstock == true}">Yes</c:when>
+											<c:when test="${item.productInstock == true}">Yes</c:when>
 											<c:otherwise>Out of stock</c:otherwise>
 										</c:choose></td>
 									<td><c:choose>
-											<c:when test="${prod.checkhot == true}">✓</c:when>
+											<c:when test="${item.checkhot == true}">✓</c:when>
 											<c:otherwise>Χ</c:otherwise>
 										</c:choose></td>
 									<td style="text-align: center;">
 										<button class="btn btn-info mx-2">Edit</button>
-										<button class="btn btn-danger mx-2">Delete</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -54,4 +56,53 @@
 			</div>
 		</div>
 	</main>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form:form action="new" method="post" modelAttribute="product">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Product Name</label>
+							<form:input path="productName" cssClass="form-control" />
+						</div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Category</label>
+							<form:select path="productCategory">
+								<form:option value="" label="-- Chọn thể loại --" />
+								<form:options items="${categories}" />
+							</form:select>
+						</div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Quantity</label>
+							<form:input path="productQuantity" cssClass="form-control" />
+						</div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Price</label>
+							<form:input path="productPrice" cssClass="form-control" />
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Properties</label>
+							<form:textarea path="productProperties" cssClass="form-control" />
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Description</label>
+							<form:textarea path="productDescription" cssClass="form-control" />
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary">Save</button>
+				</div>
+			</form:form>
+		</div>
+	</div>
 </div>

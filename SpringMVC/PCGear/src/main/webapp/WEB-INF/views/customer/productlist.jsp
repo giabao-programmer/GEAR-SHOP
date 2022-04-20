@@ -13,29 +13,29 @@
 				<div class="col-lg-3" style="width: 22% !important;">
 					<nav class="menu-nav">
 						<ul class="nav-menulist">
-							<li class="py-3"><a href="<c:url value='/cate?id=cpu'/>"> <span><img src="templates/images/icon/components.webp" alt=""></span>
-									<span>CPU - Bộ vi xử lý</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=cpu'/>"> <span><img
+										src="templates/images/icon/components.webp" alt=""></span> <span>CPU - Bộ vi xử lý</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=ram'/>"> <span><img src="templates/images/icon/ram.png" alt=""></span> <span>RAM
-										- Bộ nhớ trong</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=ram'/>"> <span><img src="templates/images/icon/ram.png"
+										alt=""></span> <span>RAM - Bộ nhớ trong</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=vga'/>"> <span><img src="templates/images/icon/vga-card.png" alt=""></span> <span>VGA
-										- Card màn hình</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=vga'/>"> <span><img
+										src="templates/images/icon/vga-card.png" alt=""></span> <span>VGA - Card màn hình</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=str'/>"> <span><img src="templates/images/icon/ssd.png" alt=""></span> <span>Lưu
-										trữ SSD / HDD</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=str'/>"> <span><img src="templates/images/icon/ssd.png"
+										alt=""></span> <span>Lưu trữ SSD / HDD</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=psu'/>"> <span><img src="templates/images/icon/power-supply.png" alt=""></span>
-									<span>PSU - Nguồn máy tính</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=psu'/>"> <span><img
+										src="templates/images/icon/power-supply.png" alt=""></span> <span>PSU - Nguồn máy tính</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=mnb'/>"> <span><img src="templates/images/icon/mainboard.png" alt=""></span> <span>MAINBOARD
-										- Bo mạch</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=mnb'/>"> <span><img
+										src="templates/images/icon/mainboard.png" alt=""></span> <span>MAINBOARD - Bo mạch</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=mnt'/>"> <span><img src="templates/images/icon/monitor.png" alt=""></span> <span>MONITOR-
-										Màn hình</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=mnt'/>"> <span><img
+										src="templates/images/icon/monitor.png" alt=""></span> <span>MONITOR- Màn hình</span>
 							</a></li>
-							<li class="py-3"><a href="<c:url value='/cate?id=cse'/>"> <span><img src="templates/images/icon/computer-case.png" alt=""></span>
-									<span>CASE - Vỏ máy tính</span>
+							<li class="py-3"><a href="<c:url value='/cate?id=cse'/>"> <span><img
+										src="templates/images/icon/computer-case.png" alt=""></span> <span>CASE - Vỏ máy tính</span>
 							</a></li>
 						</ul>
 					</nav>
@@ -51,7 +51,7 @@
 							<div class="row justify-content-center">
 
 								<c:forEach items="${products}" var="prod">
-									<div class="col-lg-3 mb-5">
+									<div class="col-lg-4 mb-5">
 										<div class="card h-100">
 											<!-- Product image-->
 											<img class="card-img-top px-3 py-3" src="templates/images/uploads/${prod.productImage}" alt="${prod.productImage}" />
@@ -80,6 +80,67 @@
 										</div>
 									</div>
 								</c:forEach>
+
+								<div>
+									<c:if test="${not empty search}">
+										<c:url value="/search?name=${search}" var="prev">
+											<c:param name="page" value="${page-1}" />
+										</c:url>
+										<c:url value="/search?name=${search}" var="next">
+											<c:param name="page" value="${page + 1}" />
+										</c:url>
+									</c:if>
+									<c:if test="${not empty cateId}">
+										<c:url value="/cate?id=${cateId}" var="prev">
+											<c:param name="page" value="${page-1}" />
+										</c:url>
+										<c:url value="/cate?id=${cateId} " var="next">
+											<c:param name="page" value="${page + 1}" />
+										</c:url>
+									</c:if>
+
+
+									<nav aria-label="Page navigation example">
+										<ul class="pagination" style="justify-content: center;">
+											<c:if test="${page > 1}">
+												<li class="page-item"><a class="page-link" href="<c:out value="${prev}" />" aria-label="Previous"> <span
+														aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span>
+												</a></li>
+											</c:if>
+
+
+											<c:forEach begin="1" end="${maxPages}" step="1" varStatus="i">
+												<c:choose>
+													<c:when test="${page == i.index}">
+														<li class="page-item"><p class="page-link" style="background-color: #4d74df; color: black;">${i.index}</p></li>
+													</c:when>
+													<c:otherwise>
+														<c:if test="${not empty search}">
+															<c:url value="/search?name=${search}" var="url">
+																<c:param name="page" value="${i.index}" />
+															</c:url>
+														</c:if>
+														<c:if test="${not empty cateId}">
+															<c:url value="/cate?id=${cateId}" var="url">
+																<c:param name="page" value="${i.index}" />
+															</c:url>
+														</c:if>
+
+														<li class="page-item"><a class="page-link" href="<c:out value="${url}" />">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+
+											<c:if test="${page + 1 <= maxPages}">
+												<li class="page-item"><a class="page-link" href="<c:out value="${next}" />" aria-label="Next"> <span
+														aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
+												</a></li>
+											</c:if>
+										</ul>
+									</nav>
+								</div>
+								<!-- End Pagination -->
+
 							</div>
 						</div>
 					</section>
