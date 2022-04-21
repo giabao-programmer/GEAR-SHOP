@@ -26,7 +26,7 @@
 
 				<div class="d-flex">
 					<a href="<c:url value='/addToCart?productId=${product.id }'/>" class="btn btn-outline-red flex-shrink-0" type="button" style="font-weight: 500;">
-						Add to cart
+						Thêm vào giỏ
 					</a>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 	<hr>
 	<div class="row">
 		<div class="col-lg-12" style="text-align: center;">
-			<h4>Description</h4>
+			<h4>Mô tả sản phẩm</h4>
 		</div>
 		<div class="col-sm-12">
 			<p style="font-size: 25px;">${product.productDescription}</p>

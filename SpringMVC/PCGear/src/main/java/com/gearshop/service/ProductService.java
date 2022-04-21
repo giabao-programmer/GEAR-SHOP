@@ -34,4 +34,12 @@ public class ProductService {
 	public List<ProductEntity> findByProductName(String name) {
 		return (List<ProductEntity>) productRepository.findByProductNameOrderByProductPriceAsc(name);
 	}
+	
+	public void newProduct(ProductEntity product) {
+		productRepository.save(product);
+	}
+	
+	public void deleteProduct(Integer id) {
+		productRepository.delete(id);
+	}
 }

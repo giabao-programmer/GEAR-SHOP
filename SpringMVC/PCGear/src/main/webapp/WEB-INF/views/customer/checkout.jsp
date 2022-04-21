@@ -13,15 +13,15 @@
 					<c:url value="/confirm" var="url"></c:url>
 					<form action="${url }" style="text-align: center" method="POST">
 						<div class="form-group mb-3 checkout">
-							<label for="name">Your Name</label> <input name="cus_name" type="text" class="form-control"
-								placeholder="Enter your full name..." required />
+							<label for="name">Họ tên</label> <input name="cus_name" type="text" class="form-control"
+								placeholder="Nhập tên của bạn..." required />
 						</div>
 						<div class="form-group mb-3 checkout">
-							<label for="phone">Phone number</label> <input name="cus_phone" type="text" class="form-control"
-								placeholder="Your phone number..." required />
+							<label for="phone">Số điện thoại</label> <input name="cus_phone" type="text" class="form-control"
+								placeholder="Nhập số điện thoại..." required />
 						</div>
 						<div class="form-group mb-3 checkout">
-							<label for="email">Email</label> <input name="cus_email" type="text" class="form-control" placeholder="Your email..."
+							<label for="email">Email</label> <input name="cus_email" type="text" class="form-control" placeholder="Địa chỉ email..."
 								required />
 						</div>
 						<div class="form-group mb-3 checkout">
@@ -40,9 +40,9 @@
 							</select>
 						</div>
 						<div class="form-group mb-3">
-							<label for="address">Address</label> <input name="address" type="text" class="form-control"
+							<label for="address">Địa chỉ cụ thể</label> <input name="address" type="text" class="form-control"
 								style="width: 89%; border-radius: 20px; margin: 0 auto;"
-								placeholder="Your address number ect: 35A Nguyen Thi Minh Khai..." required />
+								placeholder="Số nhà, tên đường..." required />
 						</div>
 						<div class="form-group mb-3 mt-5">
 							<div style="border: 3px solid red; border-radius: 10px; width: 90%; margin: auto;">
@@ -60,7 +60,7 @@
 											<c:set var="total" value="${total + cartItem.price * cartItem.count}"></c:set>
 										</c:forEach>
 										<tr>
-											<td colspan="3" style="font-weight: 900">Total:</td>
+											<td colspan="3" style="font-weight: 900">Tổng cộng:</td>
 											<td style="font-weight: 900"><fmt:setLocale value="vi_VN" /> <fmt:formatNumber currencySymbol=""
 													minFractionDigits="0" value="${total }" type="currency" /></td>
 										</tr>
@@ -68,14 +68,9 @@
 								</table>
 							</div>
 						</div>
-						<h2>Payment method</h2>
-						<label class="payment"> <input type="radio" checked="checked" name="method" value="COD" /> <span class="checkmark"></span>COD
-						</label> <label class="payment"> <input type="radio" name="method" value="MOMO" /> <span class="checkmark"></span>MOMO
-						</label>
 
 						<div class="py-5 center">
-							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Confirm
-								order</button>
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Xác nhận thanh toán</button>
 						</div>
 
 						<!-- Modal -->

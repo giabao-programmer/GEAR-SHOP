@@ -1,5 +1,7 @@
 package com.gearshop.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +17,9 @@ public class OrderDetailService {
 	public void save(OrderDetailEntity orderDetail) {
 		orderDetailRepository.save(orderDetail);
 	}
+	
+	public List<OrderDetailEntity> getOrderDetail(String orderId) {
+		return (List<OrderDetailEntity>) orderDetailRepository.findOrderDetail(orderId);
+	}
+	
 }

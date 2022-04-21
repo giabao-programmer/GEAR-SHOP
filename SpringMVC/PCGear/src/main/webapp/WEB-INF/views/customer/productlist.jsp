@@ -74,7 +74,7 @@
 													<c:url var="updateNewURL" value="/detail">
 														<c:param name="id" value="${prod.id}" />
 													</c:url>
-													<a class="btn btn-outline-dark mt-auto" href="${updateNewURL}">View product</a>
+													<a class="btn btn-outline-dark mt-auto" href="${updateNewURL}">Xem sản phẩm</a>
 												</div>
 											</div>
 										</div>

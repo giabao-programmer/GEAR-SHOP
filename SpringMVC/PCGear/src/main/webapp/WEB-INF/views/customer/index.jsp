@@ -103,7 +103,7 @@
 
 <section class="py-2 mt-4" style="background-color: aliceblue;">
 	<div class="container px-4 ps-lg-5 mt-3">
-		<h2 class="homeproduct-title">HOT Products</h2>
+		<h2 class="homeproduct-title">Sản phẩm nổi bật</h2>
 		<div
 			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
@@ -134,8 +134,7 @@
 								<c:url var="updateNewURL" value="/detail">
 									<c:param name="id" value="${prod.id}" />
 								</c:url>
-								<a class="btn btn-outline-dark mt-auto" href="${updateNewURL}">View
-									product</a>
+								<a class="btn btn-outline-dark mt-auto" href="${updateNewURL}">Xem sản phẩm</a>
 							</div>
 						</div>
 					</div>

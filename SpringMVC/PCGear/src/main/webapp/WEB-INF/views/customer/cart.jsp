@@ -5,7 +5,7 @@
 
 <div class="container mt-3" style="min-height: 720px">
 	<div style="text-align: center">
-		<h1>Your Cart</h1>
+		<h1>Giỏ hàng</h1>
 	</div>
 	<hr />
 	<div class="row py-3">
@@ -13,11 +13,11 @@
 			<table style="width: 100%">
 				<thead>
 					<tr>
-						<th>Image</th>
-						<th>Product</th>
-						<th>Quantity</th>
-						<th>Price</th>
-						<th>Remove</th>
+						<th>Hình ảnh</th>
+						<th>Sản phẩm</th>
+						<th>Số lượng</th>
+						<th>Giá</th>
+						<th>Xoá</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -42,7 +42,7 @@
 						<c:set var="total" value="${total + cartItem.price * cartItem.count}"></c:set>
 					</c:forEach>
 					<tr>
-						<td colspan="3" style="font-weight: 900">Total:</td>
+						<td colspan="3" style="font-weight: 900">Tổng cộng:</td>
 						<td style="font-weight: 900">
 							<fmt:setLocale value="vi_VN" /> 
 							<fmt:formatNumber currencySymbol="" minFractionDigits="0" value="${total }" type="currency" />
@@ -52,7 +52,7 @@
 			</table>
 		</div>
 		<div class="py-5 center">
-			<a href="<c:url value='/checkout'/>" type="button" class="btn btn-danger">Checkout</a>
+			<a href="<c:url value='/checkout'/>" type="button" class="btn btn-danger">Thanh toán</a>
 		</div>
 	</div>
 </div>
